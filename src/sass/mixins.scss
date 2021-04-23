@@ -1,0 +1,43 @@
+// @import './variables.scss';
+
+
+
+@mixin game_image(){
+    .image_front{
+        position: absolute;
+        width: 80vw;
+        bottom: 0;
+    }
+    .image_back{
+        position: absolute;
+        width: 100vw;
+        opacity: 0.6;
+        bottom: 0;
+        animation: game_image_anim 2.98s ease-in-out 0.6s  infinite;
+    }
+}
+// 
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+} 
+@mixin game_image_animation( $name, $fromx:0 , $tox:0 , $fromy: 0 , $toy:0 ,$fromz: 0 , $toz:0) {
+    @keyframes #{$name} {
+        0%{transform:  translate3d($fromx , $fromy , $fromz ); opacity: 0.6;}
+        100%{transform:  translate3d($tox , $toy , $toz ); opacity: 0;}
+    }
+    
+}
+@mixin transtions ($property ,$duration , $delay) {
+    transition: $property $duration linear $delay  infinite  ;
+}
